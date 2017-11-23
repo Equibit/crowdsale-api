@@ -18,7 +18,7 @@
       "header": {
         "type": "access"
       },
-      "audience": "https://tx-notify.com",
+      "audience": "https://ico.equibitgroup.com",
       "subject": "anonymous",
       "issuer": "feathers",
       "algorithm": "HS256",
@@ -70,28 +70,29 @@
       "secure": false
     }
   },
-  "mongodb": "mongodb://localhost:27017/tx_base_api",
+  "mongodb": "mongodb://localhost:27017/equibit-crowdsale-api",
 
   "postmark": {
-    "key": "65cd34a3-81af-48c0-ad5f-67400a7fbcc6"
+    "key": "POSTMARK_API_KEY"
   },
-  "outboundEmail": "Tx Base Website <info@txnotify.com>",
+  "outboundEmail": "Equibit ICO <info@equibitgroup.com>",
   "postmarkTemplateIds": {
-    "welcome": 3362207,
+    "welcome": 1469183,
+    "duplicateSignup": 1472482,
+    "forgotPasswordExisting": 1480221,
+    "forgotPasswordNonExisting": 1480222,
+    "securityAlertFailedLogins": 1854481,
+
     "changeEmail": 3362202,
-    "duplicateSignup": 3362205,
-    "forgotPasswordExisting": 3362203,
-    "forgotPasswordNonExisting": 3362183,
-    "securityAlertFailedLogins": 3362204,
     "supportRequestNoAccount": 3362184,
     "supportRequestReceived": 3362206,
     "supportRequestResponse": 3362185
   },
   "postMarkVariables": {
-    "companyName": "Tx Base Website",
+    "companyName": "Equibit ICO Website",
     "primaryColour": "#f0ad4e",
     "secondaryColour": "#f0ad4e",
-    "domain": "https://txuniverse.com",
+    "domain": "https://ico.equibitgroup.com",
     "companyAddress": "Toronto, On, Canada"
   }
 }
