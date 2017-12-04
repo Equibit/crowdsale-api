@@ -1,0 +1,7 @@
+---
+applications:
+- name: crowdsale-api
+  command: npm start
+  path: .
+  memory: 512M
+  instances: 1
