@@ -43,8 +43,9 @@ module.exports = function (app) {
       update: [...restrict, hashPassword()],
       patch: [
         ...restrict,
+        // Case: change password
         iff(
-          hook => hook.data && hook.data.password,
+          hook => hook.data && hook.data.password && hook.data.oldPassword,
           getUser(),
           checkPassword(),
           hashPassword(),
@@ -54,15 +55,24 @@ module.exports = function (app) {
             return hook
           }
         ),
+        // Case: change email
         iff(
-          hook => (hook.data && hook.data.newEmail && hook.data.password),
+          hook => (hook.data && hook.data.newEmail && hook.data.password && !hook.data.emailCode),
+          getUser(),
+          checkPassword(),
           createEmailCode(),
           sendEmailCode({
             From: outboundEmail,
             TemplateId: emailTemplates.changeEmail,
             emailBaseVariables
-          })
+          }),
+          hook => {
+            hook.result = hook.data
+            console.log(`... returning result.`)
+            return hook
+          }
         ),
+        // Case: change email with emailCode
         iff(
           hook => (hook.data && hook.data.emailCode),
           getUser(),
