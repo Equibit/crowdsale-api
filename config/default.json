@@ -70,7 +70,7 @@
       "secure": false
     }
   },
-  "mongodb": "mongodb://admin:BTIUHKNVCEAZFQHG@sl-us-south-1-portal.16.dblayer.com:29271/equibit-crowdsale-api?authSource=admin&ssl=true",
+  "mongodb": "mongodb://localhost:27017/equibit-crowdsale-api",
 
   "postmark": {
     "key": "POSTMARK_API_KEY"
