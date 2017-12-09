@@ -40,11 +40,19 @@ module.exports = function (app) {
           hashPassword({passwordField: 'tempPassword', timeStampField: 'tempPasswordCreatedAt'})
         )
       ],
-      update: [...restrict, hashPassword()],
+      update: [
+        context => {
+          return context.service.patch(context.id, context.data, context.params)
+            .then(result => {
+              context.result = result
+              return context
+            })
+        }
+      ],
       patch: [
         ...restrict,
         // Do not allow changing user's password and email outside of the special cases down below.
-        iff (
+        iff(
           hook => (hook.data && hook.data.password && !(hook.data.oldPassword || hook.data.newEmail || hook.data.emailCode)),
           discard('password', 'email')
         ),
