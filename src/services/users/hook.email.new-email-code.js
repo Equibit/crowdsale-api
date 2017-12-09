@@ -15,7 +15,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
 
     const templateModalVars = Object.assign(
       {
-        emailCode: hook.data.emailCode
+        emailVerificationCode: hook.data.emailCode
       },
       options.emailBaseVariables
     )

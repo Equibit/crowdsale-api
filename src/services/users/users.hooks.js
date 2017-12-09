@@ -71,13 +71,14 @@ module.exports = function (app) {
             console.log(`... returning result.`)
             return hook
           }
-        ),
-        // Case: change email with emailCode
-        iff(
-          hook => (hook.data && hook.data.emailCode),
-          getUser(),
-          checkPassword(),
-          checkEmailCode()
+        ).else(
+          // Case: change email with emailCode
+          iff(
+            hook => (hook.data && hook.data.emailCode),
+            getUser(),
+            checkPassword(),
+            checkEmailCode()
+          )
         )
         // todo: make sure to remove email and password (to not patch the user) if the above cases do not occur.
       ],
