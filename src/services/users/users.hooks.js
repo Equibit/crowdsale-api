@@ -43,7 +43,12 @@ module.exports = function (app) {
       update: [...restrict, hashPassword()],
       patch: [
         ...restrict,
-        // Case: change password
+        // Do not allow changing user's password and email outside of the special cases down below.
+        iff (
+          hook => (hook.data && hook.data.password && !(hook.data.oldPassword || hook.data.newEmail || hook.data.emailCode)),
+          discard('password', 'email')
+        ),
+        // Case: change password.
         iff(
           hook => hook.data && hook.data.password && hook.data.oldPassword,
           getUser(),
@@ -55,32 +60,34 @@ module.exports = function (app) {
             return hook
           }
         ),
-        // Case: change email
+        // Case change email.
         iff(
+          // generate emailCode and save newEmail.
           hook => (hook.data && hook.data.newEmail && hook.data.password && !hook.data.emailCode),
           getUser(),
           checkPassword(),
+          // Make sure both pswd and email are not patched:
+          discard('password', 'email'),
           createEmailCode(),
           sendEmailCode({
             From: outboundEmail,
             TemplateId: emailTemplates.changeEmail,
             emailBaseVariables
-          }),
-          hook => {
-            hook.result = hook.data
-            console.log(`... returning result.`)
-            return hook
-          }
+          })
         ).else(
-          // Case: change email with emailCode
+          // Check pswd and emailCode and set email=newEmail.
           iff(
             hook => (hook.data && hook.data.emailCode),
             getUser(),
             checkPassword(),
-            checkEmailCode()
+            checkEmailCode(),
+            hook => {
+              hook.data.email = hook.params.user.newEmail
+              hook.data.emailCode = ''
+              hook.data.newEmail = ''
+            }
           )
         )
-        // todo: make sure to remove email and password (to not patch the user) if the above cases do not occur.
       ],
       remove: [...restrict]
     },
