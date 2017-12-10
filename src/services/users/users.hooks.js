@@ -9,6 +9,7 @@ const restrict = [
     ownerField: '_id'
   })
 ]
+// const log = (msg, obj) => hook => ((obj ? console.log(msg, obj) : console.log(msg)), hook)
 
 const isExistingUser = require('./hook.is-existing-user')
 const createTemporaryPassword = require('./hook.create-temp-password')
@@ -142,3 +143,5 @@ module.exports = function (app) {
     }
   }
 }
+
+module.exports.restrict = restrict
