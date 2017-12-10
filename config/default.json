@@ -77,16 +77,12 @@
   },
   "outboundEmail": "Equibit ICO <info@equibitgroup.com>",
   "postmarkTemplateIds": {
-    "welcome": 1469183,
-    "duplicateSignup": 1472482,
-    "forgotPasswordExisting": 1480221,
-    "forgotPasswordNonExisting": 1480222,
-    "securityAlertFailedLogins": 1854481,
-
-    "changeEmail": 3362202,
-    "supportRequestNoAccount": 3362184,
-    "supportRequestReceived": 3362206,
-    "supportRequestResponse": 3362185
+    "welcome": 4189561,
+    "forgotPasswordExisting": 4189641,
+    "forgotPasswordNonExisting": 4189562,
+    "codeVerification": 4189642,
+    "duplicateSignup": 4189563,
+    "changeEmail": 4189564
   },
   "postMarkVariables": {
     "companyName": "Equibit ICO Website",
