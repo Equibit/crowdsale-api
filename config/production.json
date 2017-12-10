@@ -1,5 +1,5 @@
 {
   "host": "HOST",
   "port": "PORT",
-  "mongodb": "mongodb://admin:BTIUHKNVCEAZFQHG@sl-us-south-1-portal.16.dblayer.com:29271/equibit-crowdsale-api?authSource=admin&ssl=true"
+  "mongodb": "MONGO_DB_URI"
 }
