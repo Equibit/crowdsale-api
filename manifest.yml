@@ -1,6 +1,6 @@
 ---
 applications:
-- name: crowdsale-api
+- name: crowdsale-api-qa
   path: .
   memory: 512M
   instances: 1
