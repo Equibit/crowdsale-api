@@ -90,5 +90,9 @@
     "secondaryColour": "#f0ad4e",
     "domain": "https://ico.equibitgroup.com",
     "companyAddress": "Toronto, On, Canada"
+  },
+  "trulioo": {
+    "user": "TRULIOO_USER",
+    "password": "TRULIOO_PASSWORD"
   }
 }
