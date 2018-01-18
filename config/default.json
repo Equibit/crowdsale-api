@@ -92,7 +92,8 @@
     "companyAddress": "Toronto, On, Canada"
   },
   "trulioo": {
-    "user": "TRULIOO_USER",
-    "password": "TRULIOO_PASSWORD"
+    "username": "TRULIOO_USER",
+    "password": "TRULIOO_PASSWORD",
+    "url": "https://api.globaldatacompany.com"
   }
 }
