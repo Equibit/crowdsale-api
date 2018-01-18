@@ -37,8 +37,6 @@ class Service {
         console.log('_______ KYC ERROR: ', (err.response && err.response.data) || err.message)
         return (err.response && err.response.data) || {error: {message: err.message}}
       })
-
-    return Promise.resolve(data)
   }
 
   update (id, data, params) {
