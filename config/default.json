@@ -94,6 +94,8 @@
   "trulioo": {
     "username": "TRULIOO_USER",
     "password": "TRULIOO_PASSWORD",
-    "url": "https://api.globaldatacompany.com"
+    "baseUrl": "https://api.globaldatacompany.com",
+    "testUrl": "/connection/v1/testauthentication",
+    "verifyUrl": "/verifications/v1/verify"
   }
 }

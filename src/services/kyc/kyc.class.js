@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const axios = require('axios')
+const verifyReqData = require('./fixtures/request.json')
 
 class Service {
   constructor (options) {
@@ -20,13 +21,17 @@ class Service {
 
   create (data, params) {
     console.log('KYC: data and params.query: ', data, params.query)
+    console.log('verifyReqData', verifyReqData)
     const config = this.options
-    const action = '/connection/v1/testauthentication'
+    // const action = config.testUrl
+    const action = config.verifyUrl
+    const url = config.baseUrl + action
+    console.log(`url: ${url}`)
 
     return axios({
-      method: 'GET',
-      url: config.url + action,
-      data: {},
+      method: 'POST',
+      url,
+      data: verifyReqData,
       auth: {
         username: config.username,
         password: config.password
@@ -34,7 +39,7 @@ class Service {
     })
       .then(res => res.data)
       .catch(err => {
-        console.log('_______ KYC ERROR: ', (err.response && err.response.data) || err.message)
+        console.log('_______ KYC Service ERROR: ', (err.response && err.response.data) || err.message)
         return (err.response && err.response.data) || {error: {message: err.message}}
       })
   }

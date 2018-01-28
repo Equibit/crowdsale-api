@@ -1,5 +1,5 @@
 {
-  "AcceptTruliooTermsAndConditions": false,
+  "AcceptTruliooTermsAndConditions": true,
   "CleansedAddress": false,
   "VerboseMode": true,
   "ConfigurationName": "Identity Verification",
