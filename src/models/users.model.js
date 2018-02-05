@@ -18,6 +18,9 @@ module.exports = function (app) {
     emailCode: { type: String },
     newEmail: { type: String },
 
+    // ICO
+    ico: { type: Number },
+
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   }, {

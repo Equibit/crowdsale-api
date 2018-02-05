@@ -1,0 +1,49 @@
+{
+  "AcceptTruliooTermsAndConditions": false,
+  "CleansedAddress": false,
+  "VerboseMode": true,
+  "ConfigurationName": "Identity Verification",
+  "CountryCode": "RU",
+  "DataFields": {
+    "PersonInfo": {
+      "FirstGivenName": "Борис",
+      "MiddleName": "Сергеевич",
+      "FirstSurName": "Иванов",
+      "DayOfBirth": 30,
+      "MonthOfBirth": 12,
+      "YearOfBirth": 1922
+    },
+    "Location": {
+      "BuildingNumber": "9",
+      "UnitNumber": "34",
+      "StreetName": "Советская",
+      "City": "Октябрьский",
+      "PostalCode": "606123"
+    },
+    "Communication": {
+      "Telephone": "8311234567"
+    },
+    "DriverLicence": {},
+    "NationalIds": [
+      {
+        "Number": "12345678901",
+        "Type": "SocialService"
+      },
+      {
+        "Number": "123456789012",
+        "Type": "TaxIDNumber"
+      }
+    ],
+    "Passport": {},
+    "Business": {},
+    "CountrySpecific": {
+      "RU": {
+        "PassportSerie": "2594",
+        "DayOfIssue": "16",
+        "MonthOfIssue": "08",
+        "YearOfIssue": "2005",
+        "InternalPassportNumber": "123456"
+      }
+    }
+  }
+}
