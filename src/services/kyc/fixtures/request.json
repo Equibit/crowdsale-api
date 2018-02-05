@@ -1,0 +1,44 @@
+{
+  "AcceptTruliooTermsAndConditions": true,
+  "CleansedAddress": false,
+  "VerboseMode": true,
+  "ConfigurationName": "Identity Verification",
+  "CountryCode": "CA",
+  "DataFields": {
+    "PersonInfo": {
+      "FirstGivenName": "Susan",
+      "MiddleName": "Ronald",
+      "FirstSurName": "Mitchell",
+      "DayOfBirth": 9,
+      "MonthOfBirth": 7,
+      "YearOfBirth": 1966
+    },
+    "Location": {
+      "BuildingNumber": "20B",
+      "UnitNumber": "4",
+      "StreetName": "Highway",
+      "StreetType": "Ave",
+      "City": "Fox Creek",
+      "StateProvinceCode": "AB",
+      "PostalCode": "T0H1P0"
+    },
+    "Communication": {
+      "Telephone": "7804685132"
+    },
+    "DriverLicence": {},
+    "NationalIds": [
+      {
+        "Number": "865148654",
+        "Type": "SocialService"
+      }
+    ],
+    "Passport": {
+      "Mrz1": "P<CANSUSAN<<MITCHELL<<<<<<<<<<<<<<<<<<<<<<<<",
+      "Mrz2": "C8456324<1NZL8303052359438740809<<<<<<<<<<54",
+      "Number": "C8456324",
+      "DayOfExpiry": 5,
+      "MonthOfExpiry": 9
+    },
+    "Business": {}
+  }
+}
