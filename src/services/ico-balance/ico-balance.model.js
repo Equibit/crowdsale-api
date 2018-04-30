@@ -11,10 +11,10 @@ module.exports = function (app) {
     type: { type: String, enum: ['ICO', 'SAFT', 'AIRDROP'], required: true },
     amountEqb: { type: Number, required: true },
     amountBtc: { type: Number, required: true },
-    address: { type: String },
-    addressIndex: { type: Number },
-    fromAddress: { type: String }
-    paidAt: { type: Date },
+    address: { type: String, required: true },
+    addressIndex: { type: Number, required: true },
+    fromAddress: { type: String },
+    paidAt: { type: Date }
   }, {
     timestamps: true
   });
