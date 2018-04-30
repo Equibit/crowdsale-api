@@ -4,9 +4,17 @@
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
+  const { ObjectId } = mongooseClient.Schema.Types
   const { Schema } = mongooseClient;
   const icoBalance = new Schema({
-    text: { type: String, required: true }
+    userId: { type: ObjectId, required: true },
+    type: { type: String, enum: ['ICO', 'SAFT', 'AIRDROP'], required: true },
+    amountEqb: { type: Number, required: true },
+    amountBtc: { type: Number, required: true },
+    address: { type: String },
+    addressIndex: { type: Number },
+    fromAddress: { type: String }
+    paidAt: { type: Date },
   }, {
     timestamps: true
   });
