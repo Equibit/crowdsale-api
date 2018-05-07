@@ -4,9 +4,12 @@
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient')
+  const { ObjectId } = mongooseClient.Schema.Types
   const { Schema } = mongooseClient
   const answers = new Schema({
-    text: { type: String, required: true }
+    userId: { type: ObjectId, required: true },
+    questionId: { type: ObjectId, required: true },
+    answer: { type: String, required: true }
   }, {
     timestamps: true
   })

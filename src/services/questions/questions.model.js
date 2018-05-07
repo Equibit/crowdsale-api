@@ -6,7 +6,11 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient')
   const { Schema } = mongooseClient
   const questions = new Schema({
-    text: { type: String, required: true }
+    question: { type: String, required: true },
+    sortIndex: { type: Number },
+    questionType: { type: String, enum: ['SINGLE', 'MULTI', 'DROPDOWN'], default: 'SINGLE' },
+    // Array of strings. `CUSTOM` is reserved for "Other - Specify" answers.
+    answerOptions: { type: Array }
   }, {
     timestamps: true
   })
