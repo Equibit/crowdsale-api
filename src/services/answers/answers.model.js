@@ -9,7 +9,9 @@ module.exports = function (app) {
   const answers = new Schema({
     userId: { type: ObjectId, required: true },
     questionId: { type: ObjectId, required: true },
-    answer: { type: String, required: true }
+    questionSortIndex: { type: Number },
+    answer: { type: String, required: true },
+    answerChoice: { type: String, enum: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] }
   }, {
     timestamps: true
   })
