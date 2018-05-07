@@ -1,8 +1,8 @@
-// Initializes the `ico-balance` service on path `/ico-balance`
+// Initializes the `answers` service on path `/answers`
 const createService = require('feathers-mongoose')
-const createModel = require('./ico-balance.model')
-const hooks = require('./ico-balance.hooks')
-const filters = require('./ico-balance.filters')
+const createModel = require('./answers.model')
+const hooks = require('./answers.hooks')
+const filters = require('./answers.filters')
 
 module.exports = function () {
   const app = this
@@ -10,16 +10,16 @@ module.exports = function () {
   const paginate = app.get('paginate')
 
   const options = {
-    name: 'ico-balance',
+    name: 'answers',
     Model,
     paginate
   }
 
   // Initialize our service with any options it requires
-  app.use('/ico-balance', createService(options))
+  app.use('/answers', createService(options))
 
   // Get our initialized service so that we can register hooks and filters
-  const service = app.service('ico-balance')
+  const service = app.service('answers')
 
   service.hooks(hooks)
 
