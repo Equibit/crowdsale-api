@@ -1,11 +1,11 @@
 // ico-balance-model.js - A mongoose model
-// 
+//
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const mongooseClient = app.get('mongooseClient');
+  const mongooseClient = app.get('mongooseClient')
   const { ObjectId } = mongooseClient.Schema.Types
-  const { Schema } = mongooseClient;
+  const { Schema } = mongooseClient
   const icoBalance = new Schema({
     userId: { type: ObjectId, required: true },
     type: { type: String, enum: ['ICO', 'SAFT', 'AIRDROP'], required: true },
@@ -17,7 +17,7 @@ module.exports = function (app) {
     paidAt: { type: Date }
   }, {
     timestamps: true
-  });
+  })
 
-  return mongooseClient.model('icoBalance', icoBalance);
-};
+  return mongooseClient.model('icoBalance', icoBalance)
+}
