@@ -10,6 +10,7 @@ module.exports = function (app) {
     userId: { type: ObjectId, required: true },
     questionId: { type: ObjectId, required: true },
     questionSortIndex: { type: Number },
+    question: { type: String, required: true },
     answer: { type: String, required: true },
     answerChoice: { type: String, enum: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] }
   }, {
