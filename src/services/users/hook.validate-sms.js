@@ -1,8 +1,5 @@
 const errors = require('feathers-errors')
-const { randomBytes } = require('crypto')
 
-// Create temporary email code to change email
-// Though not needed functionally, it returns a promise for consistent testing with other hooks.
 module.exports = function (options) {
   return hook => {
     const user = hook.params.user
