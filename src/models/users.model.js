@@ -18,8 +18,15 @@ module.exports = function (app) {
     emailCode: { type: String },
     newEmail: { type: String },
 
+    // For sms 2nd factor:
+    phoneNumber: { type: String },
+    smsCode: { type: String },
+
     // ICO
     ico: { type: Number },
+
+    // Questionnaire:
+    questionnaire: { type: String, enum: ['WAITING-CODE', 'QUESTIONS', 'COMPLETED'] },
 
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }

@@ -20,6 +20,8 @@ const checkPassword = require('./hook.check-password')
 const sendEmailCode = require('./hook.email.new-email-code')
 const checkEmailCode = require('./hook.check-email-code')
 const createEmailCode = require('./hook.create-email-code')
+const sendSms = require('./hook.send-sms')
+const validateSmsCode = require('./hook.validate-sms')
 
 module.exports = function (app) {
   const outboundEmail = app.get('outboundEmail')
@@ -52,6 +54,13 @@ module.exports = function (app) {
       ],
       patch: [
         ...restrict,
+
+        // Do not allow to change questionnaire:
+        iff(
+          isProvider('external'),
+          discard('questionnaire')
+        ),
+
         // Do not allow changing user's password and email outside of the special cases down below.
         iff(
           hook => (hook.data && hook.data.password && !(hook.data.oldPassword || hook.data.newEmail || hook.data.emailCode)),
@@ -96,6 +105,14 @@ module.exports = function (app) {
               hook.data.newEmail = ''
             }
           )
+        ),
+        iff(
+          hook => (hook.data && hook.data.smsCode),
+          validateSmsCode()
+        ),
+        iff(
+          hook => (hook.data && hook.data.phoneNumber && !hook.data.smsCode),
+          sendSms()
         )
       ],
       remove: [...restrict]
@@ -105,7 +122,7 @@ module.exports = function (app) {
       all: [
         iff(
           isProvider('external'),
-          discard('password', 'tempPassword', 'emailCode')
+          discard('password', 'tempPassword', 'emailCode', 'smsCode')
         )
       ],
       find: [],

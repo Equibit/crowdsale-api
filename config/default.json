@@ -97,5 +97,10 @@
     "baseUrl": "https://api.globaldatacompany.com",
     "testUrl": "/connection/v1/testauthentication",
     "verifyUrl": "/verifications/v1/verify"
+  },
+  "twilio": {
+    "phoneNumber": "+16476966504",
+    "accountSid": "ACb771f7dab7ddb95451d8a159eb48bc53",
+    "authToken": "d14342dbca1697aec67d5e2395a1d342"
   }
 }
