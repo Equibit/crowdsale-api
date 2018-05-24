@@ -8,7 +8,7 @@ module.exports = function (app) {
   const { Schema } = mongooseClient
   const icoBalance = new Schema({
     userId: { type: ObjectId, required: true },
-    type: { type: String, enum: ['ICO', 'SAFT', 'AIRDROP'], required: true },
+    type: { type: String, required: true },
     amountEqb: { type: Number, required: true },
     amountBtc: { type: Number },
     address: { type: String },
