@@ -108,10 +108,12 @@ module.exports = function (app) {
         ),
         iff(
           hook => (hook.data && hook.data.smsCode),
+          getUser(),
           validateSmsCode()
         ),
         iff(
           hook => (hook.data && hook.data.phoneNumber && !hook.data.smsCode),
+          getUser(),
           sendSms()
         )
       ],
