@@ -23,6 +23,7 @@ const authentication = require('./authentication')
 const mongoose = require('./mongoose')
 
 const app = feathers()
+app.use('/version123', feathers.static(__dirname + '/../package.json'))
 
 // Load app configuration
 app.configure(configuration())
